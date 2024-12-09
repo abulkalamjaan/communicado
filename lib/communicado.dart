@@ -64,7 +64,8 @@ class Cado {
           name: _tag);
       return null;
     }
-    bool internet = await isInternetAvailable();
+    //bool internet = await isInternetAvailable();
+    bool internet=true;
     Response? req;
     if (internet) {
       _setRequestOptions();
