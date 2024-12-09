@@ -1,7 +1,11 @@
 name: communicado
 description: "A client to server communication plugin with easy to use."
 version: 0.0.1
-homepage:
+homepage: https://github.com/abulkalamjaan/communicado.git
+license: Apache-2.0
+author: Abul Kalam Jaan
+author_email: abul@abulkalam.dev
+
 
 environment:
   sdk: ^3.5.3
