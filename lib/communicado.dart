@@ -202,19 +202,24 @@ class Cado {
 
   ///Check if the internet is available or not. Returns true if available, false otherwise.
   Future<bool> isInternetAvailable() async {
-    var connectivityResult = await (Connectivity().checkConnectivity());
-    if (connectivityResult == ConnectivityResult.mobile) {
-      log('Mobile network available', name: _tag);
-      // I am connected to a mobile network.
-      return Future.value(true);
-    } else if (connectivityResult == ConnectivityResult.wifi) {
-      // I am connected to a wifi network.
-      log('WIFI network available', name: _tag);
-      return Future.value(true);
-    } else {
-      // I am not connected to any network.
-      log('No internet access', name: _tag);
-      return Future.value(true);
+    try {
+      var connectivityResult = await (Connectivity().checkConnectivity());
+      if (connectivityResult == ConnectivityResult.mobile) {
+        log('Mobile network available', name: _tag);
+        // I am connected to a mobile network.
+        return Future.value(true);
+      } else if (connectivityResult == ConnectivityResult.wifi) {
+        // I am connected to a wifi network.
+        log('WIFI network available', name: _tag);
+        return Future.value(true);
+      } else {
+        // I am not connected to any network.
+        log('No internet access', name: _tag);
+        return Future.value(true);
+      }
+    } catch (e) {
+      log(e.toString(), name: _tag);
     }
+    return true;
   }
 }
